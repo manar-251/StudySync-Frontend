@@ -1,6 +1,6 @@
 const signup = async (formData) => {
   try {
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/signup`, {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -18,7 +18,7 @@ const signup = async (formData) => {
 
 const signin = async (user) => {
   try {
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/signin`, {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user),

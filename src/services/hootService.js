@@ -1,4 +1,4 @@
-const BASE_URL = `${import.meta.env.VITE_BACKEND_URL}/hoots`;
+const BASE_URL = `${import.meta.env.VITE_BACKEND_URL}/api/hoots`;
 
 const index = async () => {
     try {

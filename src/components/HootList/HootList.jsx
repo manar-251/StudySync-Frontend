@@ -7,7 +7,7 @@ const HootList = ({hoots}) => {
     return (
         <main className={styles.container}>
         {hoots.map((hoot) => (
-            <Link key={hoot._id} to={`/hoots/${hoot._id}`}>
+            <Link key={hoot.id} to={`/hoots/${hoot.id}`}>
               <article>
                 <header>
                 <div>

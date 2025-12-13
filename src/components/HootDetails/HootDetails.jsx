@@ -43,10 +43,10 @@ const HootDetails = ({ user, handleDeleteHoot }) => {
               <h1>{hoot.title}</h1>
               <div>
               <AuthorInfo content={hoot} />
-                {hoot.author._id === user.id && (<><Link to={`/hoots/${hootId}/edit`}>
+                {hoot.user.id === user.id && (<><Link to={`/hoots/${hootId}/edit`}>
                   <Icon category="Edit" />
                 </Link></>)}
-                {hoot.author._id === user.id && (<><button onClick={() => handleDeleteHoot(hootId)}>
+                {hoot.user.id === user.id && (<><button onClick={() => handleDeleteHoot(hootId)}>
                   <Icon category="Trash" />
                 </button></>)}  
               </div>         
@@ -62,7 +62,7 @@ const HootDetails = ({ user, handleDeleteHoot }) => {
                 <header>
                 <div>
                 <AuthorInfo content={comment} />
-                {comment.author._id === user.id && (
+                {comment.user === user.id && (
                   <>
                     <Link to={`/hoots/${hootId}/comments/${comment._id}/edit`}>
                       <Icon category="Edit" />

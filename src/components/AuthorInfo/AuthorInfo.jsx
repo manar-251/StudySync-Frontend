@@ -7,7 +7,7 @@ const AuthorInfo = ({ content }) => {
     <div className={styles.container}>
       <img src={ProfileIcon} alt="The user's avatar" />
       <section>
-        <p>{content.author.username}</p>
+        <p>{content.user.username}</p>
         <div className={styles.container}>
           <Icon category="Calendar" />
           <p>{new Date(content.createdAt).toLocaleDateString()}</p>
