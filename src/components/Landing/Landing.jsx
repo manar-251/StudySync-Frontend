@@ -1,11 +1,13 @@
 const Landing = () => {
     return (
       <main>
-        <h1>Hello, you are on the landing page for visitors.</h1>
+        <h1>StudySync</h1>
         <h3>
-          If you sign up for a new account, you will have the ability to sign in
-          and see your super secret dashboard.
+          Plan your tasks, log study sessions, and track daily wellness in one place.
         </h3>
+        <p>
+        <Link to="/signin">Sign in</Link> or <Link to="/signup">create an account</Link> to get started.
+        </p>
       </main>
     );
 };
