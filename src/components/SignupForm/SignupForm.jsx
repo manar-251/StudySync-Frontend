@@ -15,23 +15,22 @@ const SignupForm = (props) => {
     passwordConf: '',
   });
 
-  const updateMessage = (msg) => {
-    setMessage(msg);
-  };
 
   const handleChange = (event) => {
+    setMessage('');
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        const newUserResponse = await authService.signup(formData);
-        props.setUser(newUserResponse.user);
-        navigate('/');
-      } catch (err) {
-        updateMessage(err.message);
-      };
+      const { username, password } = formData;
+      const user = await authService.signup({ username, password });
+      props.setUser(user);
+      navigate('/');
+    } catch (err) {
+      setMessage(err.message);
+    }
   };
 
   const { username, password, passwordConf } = formData;
