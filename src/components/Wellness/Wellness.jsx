@@ -66,7 +66,43 @@ const Wellness = () => {
     setForm({ ...form, [name]: value });
   };
 
-  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setError('');
+      if (!form.date) {
+        setError('Date is required');
+        return;
+      }
+
+      const payload = {
+        date: form.date,
+        waterGlasses: Number(form.waterGlasses),
+        exerciseMinutes: Number(form.exerciseMinutes),
+        sleepHours: Number(form.sleepHours),
+      };
+
+      const saved = await wellnessLogService.createOrUpdate(payload);
+        setLogs((prev) => {
+        const exists = prev.some((l) => l._id === saved._id);
+        if (exists) return prev.map((l) => (l._id === saved._id ? saved : l));
+        return [saved, ...prev];
+      });
+
+      setForm(emptyForm);
+    } catch (err) {
+      setError(err.message || 'Failed to save wellness log');
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await wellnessLogService.remove(id);
+      setLogs(logs.filter((l) => l._id !== id));
+    } catch (err) {
+      setError(err.message || 'Failed to delete log');
+    }
+  };
 
 };
 
