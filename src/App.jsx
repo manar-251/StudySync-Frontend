@@ -9,7 +9,7 @@ import Tasks from './components/Tasks/Tasks';
 import * as authService from '../src/services/authService';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Profile from './components/Profile/Profile';
-
+import StudySessions from "./components/StudySessions/StudySessions";
 
 const App = () => {
 const [user, setUser] = useState({ username: "test", _id: "temp" });
@@ -38,9 +38,6 @@ const [user, setUser] = useState({ username: "test", _id: "temp" });
             </ProtectedRoute>
           }
         />
-
-       
-        
           <Route
           path="/profile"
           element={
@@ -57,7 +54,10 @@ const [user, setUser] = useState({ username: "test", _id: "temp" });
           </ProtectedRoute>
            }        
         />
-
+         <Route 
+         path="/studySessions"
+          element={<StudySessions />} 
+        />
       </Routes>
     </>
   );

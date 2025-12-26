@@ -42,7 +42,7 @@ const Dashboard = ({ user }) => {
         <h1>Welcome, {user.username}</h1>
         <div className={styles.quickLinks}>
           <Link to="/tasks">Tasks</Link>
-          <Link to="/study-sessions">Timer</Link>
+          <Link to="/studySessions">Timer</Link>
           <Link to="/wellness">Wellness</Link>
         </div>
       </div>
@@ -66,7 +66,7 @@ const Dashboard = ({ user }) => {
             <h2>Study</h2>
             <p className={styles.big}>{summary.study.totalHours}</p>
             <p className={styles.muted}>total hours</p>
-            <Link to="/study-sessions" className={styles.cta}>Start timer</Link>
+            <Link to="/studySessions" className={styles.cta}>Start timer</Link>
           </div>
 
           <div className={styles.card}>
