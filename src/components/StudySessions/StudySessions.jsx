@@ -60,4 +60,33 @@ const StudySessions = () => {
     setElapsedSec(0);
   };
 
+  const handleStopAndSave = async () => {
+    try {
+      setError('');
+      const start = startMsRef.current;
+      if (!start) return;
+
+      const end = Date.now();
+      const minutes = Math.max(1, Math.round((end - start) / 60000));
+
+      const payload = {
+        startTime: new Date(start).toISOString(),
+        endTime: new Date(end).toISOString(),
+        durationMinutes: minutes,
+        status: 'completed',
+        note: note.trim(),
+      };
+
+      const created = await studySessionService.create(payload);
+      setSessions([created, ...sessions]);
+ setIsRunning(false);
+      startMsRef.current = null;
+      setElapsedSec(0);
+      setNote('');
+    } catch (err) {
+      setError(err.message || 'Failed to save session');
+    }
+ } ;
+
+ 
 };  
