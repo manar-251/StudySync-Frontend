@@ -88,5 +88,20 @@ const StudySessions = () => {
     }
  } ;
 
- 
+ const handleCancel = () => {
+    setIsRunning(false);
+    startMsRef.current = null;
+    setElapsedSec(0);
+  };
+
+   const handleDelete = async (id) => {
+    try {
+      await studySessionService.remove(id);
+      setSessions(sessions.filter((s) => s._id !== id));
+    } catch (err) {
+      setError(err.message || 'Failed to delete session');
+    }
+  };
+
+  
 };  
