@@ -7,6 +7,7 @@ import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
 import Tasks from './components/Tasks/Tasks';
 import * as authService from '../src/services/authService';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 
 const App = () => {
