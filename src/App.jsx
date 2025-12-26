@@ -10,6 +10,7 @@ import * as authService from '../src/services/authService';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Profile from './components/Profile/Profile';
 import StudySessions from "./components/StudySessions/StudySessions";
+import Wellness from "./components/Wellness/Wellness";
 
 const App = () => {
 const [user, setUser] = useState({ username: "test", _id: "temp" });
