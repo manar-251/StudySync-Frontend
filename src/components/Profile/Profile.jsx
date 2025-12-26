@@ -45,6 +45,41 @@ const Profile = () => {
       setSaving(false);
     }
   };
+
+  eturn (
+    <main className={styles.container}>
+      <h1>Profile</h1>
+
+      {error && <p className={styles.error}>{error}</p>}
+      {info && <p className={styles.info}>{info}</p>}
+
+      {!profile ? (
+        <p>Loading...</p>
+      ) : (
+        <section className={styles.card}>
+          <div className={styles.meta}>
+            <div>
+              <strong>User ID:</strong> {profile._id}
+            </div>
+          </div>
+
+          <form onSubmit={handleSave} className={styles.form}>
+            <label>
+              Username
+              <input value={username} onChange={(e) => setUsername(e.target.value)} />
+            </label>
+
+            <div className={styles.actions}>
+              <button type="submit" disabled={saving || username.trim() === profile.username}>
+                {saving ? 'Saving...' : 'Save'}
+              </button>
+            </div>
+          </form>
+        </section>
+      )}
+    </main>
+  );
+
 };  
 
 
