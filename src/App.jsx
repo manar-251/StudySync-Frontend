@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate  } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -12,7 +12,7 @@ import Profile from './components/Profile/Profile';
 
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser());
+const [user, setUser] = useState({ username: "test", _id: "temp" });
 
 
   const handleSignout = () => {
@@ -48,6 +48,14 @@ const App = () => {
               <Profile />
             </ProtectedRoute>
           }
+        />
+          <Route
+         path="/tasks"
+         element={
+          <ProtectedRoute user={user}>
+           <Tasks />
+          </ProtectedRoute>
+           }        
         />
 
       </Routes>

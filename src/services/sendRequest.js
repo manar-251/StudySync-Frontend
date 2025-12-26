@@ -1,5 +1,4 @@
 import { getToken } from './tokenService';
-
 const BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
 
 const sendRequest = async (endpoint, options = {}) => {

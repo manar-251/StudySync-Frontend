@@ -14,7 +14,7 @@ const SigninForm = (props) => {
     password: '',
   });
 
-
+  const updateMessage = (msg) => setMessage(msg);
 
   const handleChange = (event) => {
     updateMessage('');
@@ -23,6 +23,7 @@ const SigninForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    updateMessage("");
     try {
       const user = await authService.signin(formData);
       props.setUser(user);

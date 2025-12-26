@@ -1,5 +1,7 @@
 const index = () => sendRequest('/tasks');
 import { request } from "./apiClient";
+import { sendRequest } from "./sendRequest";
+export const getTasks = () => sendRequest("/tasks");
 
 const create = (taskFormData) =>
   sendRequest('/tasks', {

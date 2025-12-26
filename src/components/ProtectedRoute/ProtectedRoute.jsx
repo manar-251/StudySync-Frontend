@@ -1,9 +1,6 @@
 import { Navigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ user, children }) => {
-  if (!user) return <Navigate to="/signin" replace />;
-  return children;
-};
+const ProtectedRoute = ({ children }) => children;
 
 export default ProtectedRoute;
 
