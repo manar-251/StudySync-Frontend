@@ -11,6 +11,7 @@ const SigninForm = (props) => {
   const [message, setMessage] = useState(['']);
   const [formData, setFormData] = useState({
     username: '',
+     email: "",
     password: '',
   });
 
