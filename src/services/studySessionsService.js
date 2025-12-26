@@ -8,5 +8,9 @@ const create = (sessionFormData) =>
     body: sessionFormData,
   });
 
+const remove = (sessionId) =>
+  sendRequest(`/studySessions/${sessionId}`, {
+    method: 'DELETE',
+  });
 
 export { index, create, remove };
