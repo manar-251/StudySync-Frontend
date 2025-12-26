@@ -103,7 +103,33 @@ const Wellness = () => {
       setError(err.message || 'Failed to delete log');
     }
   };
+    return (
+        <main className={styles.container}>
+           <h1>Wellness</h1>
 
+      <section className={styles.card}>
+        <h2>Water Goal</h2>
+        <div className={styles.goalRow}>
+          <label>
+            Goal (glasses/day)
+            <input type="number" min="1" value={waterGoal} onChange={(e) => setWaterGoal(Number(e.target.value))} />
+          </label>
+
+          <div className={styles.progress}>
+            <strong>Today:</strong> {todayWater}/{waterGoal}
+          </div>
+
+          <div className={styles.goalActions}>
+            <button type="button" onClick={() => quickAddWater(1)}>+1 glass</button>
+            <button type="button" onClick={() => quickAddWater(-1)} disabled={todayWater <= 0}>-1</button>
+          </div>
+        </div>
+      </section> 
+     {error && <p className={styles.error}>{error}</p>}
+
+        </main>
+
+    );
 };
 
 export default Wellness;
