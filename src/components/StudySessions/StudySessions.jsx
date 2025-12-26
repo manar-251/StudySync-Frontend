@@ -149,7 +149,28 @@ const StudySessions = () => {
           </li>
         </ul>
       </section>
-      
+       <section className={styles.card}>
+        <h2>Study History</h2>
+        {sessions.length === 0 ? (
+          <p>No sessions yet.</p>
+        ) : (
+          <ul className={styles.list}>
+            {sessions.map((s) => (
+              <li key={s._id} className={styles.item}>
+                <div>
+                  <strong>{new Date(s.startTime).toLocaleString()}</strong> →{' '}
+                  <strong>{new Date(s.endTime).toLocaleString()}</strong>
+                </div>
+                <div className={styles.meta}>Duration: {s.durationMinutes} min</div>
+                {s.note && <div className={styles.meta}>Note: {s.note}</div>}
+                <button type="button" onClick={() => handleDelete(s._id)}>
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
       </main>
   );
 };  
