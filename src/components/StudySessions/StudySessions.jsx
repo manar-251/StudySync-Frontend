@@ -103,5 +103,31 @@ const StudySessions = () => {
     }
   };
 
-  
+  return (
+    <main className={styles.container}>
+      <h1>Study Timer</h1>
+      {error && <p className={styles.error}>{error}</p>}
+      <section className={styles.card}>
+        <h2>Timer</h2>
+
+        <div className={styles.timerRow}>
+          <div className={styles.timer}>{formatElapsed(elapsedSec)}</div>
+
+            {!isRunning ? (
+            <button type="button" onClick={handleStart}>
+              Start
+            </button>
+) : (
+            <div className={styles.timerActions}>
+              <button type="button" onClick={handleStopAndSave}>
+                Stop & Save
+              </button>
+              <button type="button" onClick={handleCancel}>
+                Cancel
+              </button>
+            </div>
+          )}
+        </div>
+
+  );
 };  
