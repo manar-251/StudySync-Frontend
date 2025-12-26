@@ -14,9 +14,7 @@ const SigninForm = (props) => {
     password: '',
   });
 
-  const updateMessage = (msg) => {
-    setMessage(msg);
-  };
+
 
   const handleChange = (event) => {
     updateMessage('');
