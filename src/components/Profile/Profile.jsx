@@ -46,7 +46,7 @@ const Profile = () => {
     }
   };
 
-  eturn (
+  return (
     <main className={styles.container}>
       <h1>Profile</h1>
 
