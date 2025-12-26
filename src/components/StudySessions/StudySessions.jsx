@@ -10,3 +10,54 @@ const formatElapsed = (totalSeconds) => {
   const pad = (n) => String(n).padStart(2, '0');
   return h > 0 ? `${h}:${pad(m)}:${pad(sec)}` : `${m}:${pad(sec)}`;
 };
+
+const StudySessions = () => {
+  const [sessions, setSessions] = useState([]);
+  const [error, setError] = useState('');
+  const [isRunning, setIsRunning] = useState(false);
+  const [note, setNote] = useState('');
+  const startMsRef = useRef(null);
+  const [elapsedSec, setElapsedSec] = useState(0);
+  const loadSessions = async () => {
+    try {
+      setError('');
+      const data = await studySessionService.index();
+      setSessions(data);
+    } catch (err) {
+      setError(err.message || 'Failed to load study sessions');
+    }
+  };
+
+  useEffect(() => {
+    loadSessions();
+  }, []);
+
+  useEffect(() => {
+    if (!isRunning) return;
+
+    const tick = () => {
+      const start = startMsRef.current;
+      if (!start) return;
+      setElapsedSec((Date.now() - start) / 1000);
+    };
+
+    tick();
+    const id = setInterval(tick, 500);
+    return () => clearInterval(id);
+  }, [isRunning]);
+
+
+    const stats = useMemo(() => {
+    const totalMinutes = sessions.reduce((sum, s) => sum + (s.durationMinutes || 0), 0);
+    const totalHours = +(totalMinutes / 60).toFixed(2);
+    return { count: sessions.length, totalMinutes, totalHours };
+  }, [sessions]);
+
+   const handleStart = () => {
+    setError('');
+    setIsRunning(true);
+    startMsRef.current = Date.now();
+    setElapsedSec(0);
+  };
+
+};  
