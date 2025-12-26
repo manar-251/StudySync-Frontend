@@ -171,6 +171,30 @@ const Wellness = () => {
 
           </form>
         </section>
+
+      <section className={styles.card}>
+        <h2>Your Logs</h2>
+        {logs.length === 0 ? (
+          <p>No logs yet.</p>
+        ) : (
+          <ul className={styles.list}>
+            {logs.map((l) => (
+              <li key={l._id} className={styles.item}>
+                <div>
+                  <strong>{new Date(l.date).toLocaleDateString()}</strong>
+                </div>
+                <div className={styles.meta}>Water: {l.waterGlasses}</div>
+                <div className={styles.meta}>Exercise: {l.exerciseMinutes} min</div>
+                <div className={styles.meta}>Sleep: {l.sleepHours} hrs</div>
+                <button type="button" onClick={() => handleDelete(l._id)}>
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
         </main>
 
     );

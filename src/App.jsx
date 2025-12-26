@@ -58,6 +58,15 @@ const [user, setUser] = useState({ username: "test", _id: "temp" });
          path="/studySessions"
           element={<StudySessions />} 
         />
+
+        <Route
+          path="/wellness"
+          element={
+            <ProtectedRoute user={user}>
+              <Wellness />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );
