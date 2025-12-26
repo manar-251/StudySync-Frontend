@@ -167,6 +167,7 @@ const Wellness = () => {
               onChange={handleChange}
             />
           </label>
+          <button type="submit">Save</button>
 
           </form>
         </section>
