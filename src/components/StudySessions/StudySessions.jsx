@@ -128,6 +128,28 @@ const StudySessions = () => {
             </div>
           )}
         </div>
+          <label className={styles.note}>
+          Note (optional)
+          <input value={note} onChange={(e) => setNote(e.target.value)} placeholder="What did you study?" />
+        </label>
+        <p className={styles.hint}>
+          Tip: stopping will automatically save a session with your start/end time.
+        </p>
+      </section>
 
+
+        <section className={styles.card}>
+        <h2>Study Stats</h2>
+        <ul className={styles.stats}>
+          <li>
+            <strong>Total sessions:</strong> {stats.count}
+          </li>
+          <li>
+            <strong>Total time:</strong> {stats.totalHours} hours
+          </li>
+        </ul>
+      </section>
+      
+      </main>
   );
 };  
