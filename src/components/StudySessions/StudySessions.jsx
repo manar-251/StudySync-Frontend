@@ -174,3 +174,5 @@ const StudySessions = () => {
       </main>
   );
 };  
+
+export default StudySessions;
