@@ -126,7 +126,50 @@ const Wellness = () => {
         </div>
       </section> 
      {error && <p className={styles.error}>{error}</p>}
+        <section className={styles.card}>
+        <h2>Daily Log (Upsert)</h2>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <label>
+            Date
+            <input type="date" name="date" value={form.date} onChange={handleChange} />
+          </label>
 
+          <label>
+            Water glasses
+            <input
+              type="number"
+              min="0"
+              name="waterGlasses"
+              value={form.waterGlasses}
+              onChange={handleChange}
+            />
+          </label>
+        
+
+          <label>
+            Exercise minutes
+            <input
+              type="number"
+              min="0"
+              name="exerciseMinutes"
+              value={form.exerciseMinutes}
+              onChange={handleChange}
+            />
+          </label>
+
+          <label>
+            Sleep hours
+            <input
+              type="number"
+              min="0"
+              name="sleepHours"
+              value={form.sleepHours}
+              onChange={handleChange}
+            />
+          </label>
+
+          </form>
+        </section>
         </main>
 
     );
