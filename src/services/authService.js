@@ -1,3 +1,10 @@
+const BASE = `${import.meta.env.VITE_BACKEND_URL}/api`;
+
+
+const decodeTokenUser = (token) => {
+  const payload = token.split(".")[1];
+  return JSON.parse(atob(payload));
+};
 
 const signup = async (formData) => {
   try {
