@@ -8,6 +8,7 @@ import SigninForm from './components/SigninForm/SigninForm';
 import Tasks from './components/Tasks/Tasks';
 import * as authService from '../src/services/authService';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import Profile from './components/Profile/Profile';
 
 
 const App = () => {
