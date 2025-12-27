@@ -41,7 +41,7 @@ const SigninForm = (props) => {
         <h1>Log In</h1>
         <p>{message}</p>
         <div>
-          <label htmlFor="email">Username:</label>
+        <label htmlFor="username">Username:</label>
           <input
             type="text"
             autoComplete="off"
@@ -63,7 +63,7 @@ const SigninForm = (props) => {
           />
         </div>
         <div>
-          <button>Log In</button>
+          <button type="submit">Log In</button>
           <Link to="/">
             <button>Cancel</button>
           </Link>
