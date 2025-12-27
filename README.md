@@ -9,7 +9,11 @@ This repository contains the **front-end** portion of the MERN stack project —
 ---
 
 ## 🖼️ Screenshot / Logo
-
+![Log in](<Screenshot 2025-12-28 004208.png>)
+![Dashboard](<Screenshot 2025-12-28 004218.png>)
+![Tasks](<Screenshot 2025-12-28 004237.png>)
+![Study sessions](<Screenshot 2025-12-28 004249.png>)
+![Wellness](<Screenshot 2025-12-28 004259.png>)
 ![Profile](image.png)
 ---
 
