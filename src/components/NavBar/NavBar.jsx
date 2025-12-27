@@ -1,31 +1,37 @@
-import { Link } from 'react-router-dom';
-import styles from './NavBar.module.css';
+import { Link, NavLink } from "react-router-dom";
+import styles from "./NavBar.module.css";
+import logo from "../../assets/images/logoForSTUDYSYNC.png";
 
 const NavBar = ({ user, handleSignout }) => {
   return (
-    <>
-      { user ? (
-        <nav className={styles.container}>
-          <ul>
-            <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><Link to="/tasks">Tasks</Link></li>
-            <li><Link to="/studySessions">Study Timer</Link></li>
-            <li><Link to="/profile">Profile</Link></li>
-            <li><Link to="/wellness">Wellness</Link></li>
+    <nav className={styles.container}>
+      <Link to="/dashboard" className={styles.brand}>
+        <img src={logo} alt="StudySync logo" className={styles.logo} />
+        <span className={styles.brandText}>StudySync</span>
+      </Link>
 
-            <li><Link to="" onClick={handleSignout}>Sign Out</Link></li>
-          </ul>
-        </nav>
+      {user ? (
+        <ul className={styles.links}>
+          <li><NavLink to="/dashboard" className={({isActive}) => isActive ? styles.active : undefined}>Dashboard</NavLink></li>
+          <li><NavLink to="/tasks" className={({isActive}) => isActive ? styles.active : undefined}>Tasks</NavLink></li>
+          <li><NavLink to="/studySessions" className={({isActive}) => isActive ? styles.active : undefined}>Study Timer</NavLink></li>
+          <li><NavLink to="/wellness" className={({isActive}) => isActive ? styles.active : undefined}>Wellness</NavLink></li>
+          <li><NavLink to="/profile" className={({isActive}) => isActive ? styles.active : undefined}>Profile</NavLink></li>
+
+          <li>
+            <button onClick={handleSignout} className={styles.signOut}>
+              Sign Out
+            </button>
+          </li>
+        </ul>
       ) : (
-        <nav className={styles.container}>
-          <ul>
-            <li><Link to="/signin">Sign In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
-          </ul>
-        </nav>
+        <ul className={styles.links}>
+          <li><NavLink to="/signin" className={({isActive}) => isActive ? styles.active : undefined}>Sign In</NavLink></li>
+          <li><NavLink to="/signup" className={({isActive}) => isActive ? styles.active : undefined}>Sign Up</NavLink></li>
+        </ul>
       )}
-    </>
-  )
-}
+    </nav>
+  );
+};
 
 export default NavBar;

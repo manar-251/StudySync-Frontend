@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as authService from '../../services/authService';
-
-import LoginIcon from '../../assets/images/login.svg';
+import heroImg from '../../assets/images/log.png';
 
 import styles from './SigninForm.module.css';
 
@@ -36,9 +35,7 @@ const SigninForm = (props) => {
 
   return (
     <main className={styles.container}>
-      <section>
-        <img src={LoginIcon} alt="An owl sitting on a sign" />
-      </section>
+      
       <section>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <h1>Log In</h1>
@@ -73,6 +70,11 @@ const SigninForm = (props) => {
         </div>
       </form>
       </section>
+
+      <aside className={styles.hero}>
+        <img src={heroImg} alt="StudySync desk setup" />
+      </aside>
+    
     </main>
   );
 };

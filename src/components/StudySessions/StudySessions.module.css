@@ -1,87 +1,101 @@
-.container {
-  max-width: 900px;
+.container{
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 1.5rem;
 }
 
-.card {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 1rem;
-  margin: 1rem 0;
-  background: #fff;
+.card{
+  background: rgba(255,255,255,.85);
+  border:1px solid rgba(15,23,42,.10);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 14px;
 }
 
-.form {
-  display: grid;
-  gap: 0.75rem;
+.timer{
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
 }
 
-.form label {
-  display: grid;
-  gap: 0.25rem;
+.timerRow{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
-.list {
-  list-style: none;
-  padding: 0;
+.timerActions{
+  display:flex;
+  gap: 10px;
+  flex-wrap:wrap;
+}
+
+.stats{
+  display:flex;
+  gap: 10px;
+  flex-wrap:wrap;
+  margin-top: 10px;
+}
+
+.note{
+  margin:0;
+  font-weight:700;
+  color: rgba(15,23,42,.70);
+}
+
+.hint{
+  font-size: 13px;
   margin: 0;
-  display: grid;
-  gap: 0.75rem;
+  color: rgba(15,23,42,.62);
 }
 
-.item {
-  border: 1px solid #eee;
+.list{
+  list-style:none;
+  margin: 12px 0 0;
+  padding: 0;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+.item{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px 12px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(255,255,255,.70);
+  align-items:center;
+}
+
+.meta{
+  color: rgba(15,23,42,.62);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.item button{
+  padding: 9px 12px;
   border-radius: 12px;
-  padding: 0.75rem;
-  display: grid;
-  gap: 0.5rem;
+  background: rgba(239,68,68,.10);
+  color: rgba(15,23,42,.88);
+  border: 1px solid rgba(239,68,68,.20);
+  box-shadow:none;
 }
 
-.meta {
-  font-size: 0.9rem;
-  color: #555;
+.item button:hover{
+  background: rgba(239,68,68,.16);
 }
 
-.error {
-  color: #b00020;
-}
-
-.timerRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.timer {
-  font-size: 2rem;
+.error{
+  color: var(--danger);
   font-weight: 800;
-  letter-spacing: 0.5px;
 }
 
-.timerActions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.note {
-  display: grid;
-  gap: 0.25rem;
-  margin-top: 0.75rem;
-}
-
-.hint {
-  font-size: 0.9rem;
-  opacity: 0.75;
-  margin-top: 0.5rem;
-}
-
-.stats {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.5rem;
+@media (max-width: 900px){
+  .item{
+    grid-template-columns: 1fr;
+  }
 }

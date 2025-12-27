@@ -1,109 +1,110 @@
-.container {
-  min-height: calc(100vh - 80px);
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-items: center;
-  padding: 24px 16px;
+.container{
+  display:grid;
+  grid-template-columns: 1.1fr 1.2fr;
   gap: 18px;
+  align-items: stretch;
+  max-width: 980px;
+  margin: 24px auto 0;
 }
 
-.container section:first-child {
-  display: none;
+.container section{
+  background: rgba(255,255,255,.85);
+  border:1px solid rgba(15,23,42,.10);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
 }
 
-.container img {
-  max-width: 220px;
+.container section:first-child{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 22px;
+  background:
+    radial-gradient(800px 420px at 20% 0%, rgba(59,130,246,.14), transparent 60%),
+    radial-gradient(800px 420px at 90% 30%, rgba(20,184,166,.14), transparent 55%),
+    rgba(255,255,255,.85);
+}
+
+.container img{
+  width: min(320px, 85%);
+  height:auto;
+  opacity: .95;
+  filter: drop-shadow(0 14px 32px rgba(15,23,42,.12));
+}
+
+.container form{
+  padding: 22px;
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+}
+
+.container p{
+  margin:0;
+}
+
+.container form > div{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.container label{
+  font-weight:700;
+  color: rgba(15,23,42,.80);
+}
+
+.container form button{
   width: 100%;
-  height: auto;
-  opacity: 0.95;
 }
 
-.container form {
+.container form > div:last-child{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.container a button{
+  background: transparent;
+  color: rgba(15,23,42,.86);
+  border-color: rgba(15,23,42,.14);
+  box-shadow:none;
+}
+
+.container a button:hover{
+  background: rgba(15,23,42,.04);
+}
+
+.hero{
+  background: linear-gradient(135deg, var(--primary-100), #fff);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 26px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero img{
   width: 100%;
   max-width: 420px;
-  background: var(--card-bg, #ffffff);
-  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
-  border-radius: 16px;
-  box-shadow: var(--shadow, 0 10px 30px rgba(0, 0, 0, 0.08));
-  padding: 22px 18px;
-}
-
-.container h1 {
-  margin: 0 0 14px;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text, #111827);
-}
-
-.container p {
-  margin: 0 0 14px;
-  color: var(--muted, #6b7280);
-  font-size: 0.95rem;
-}
-
-.container p:empty {
-  display: none;
-}
-
-/* form fields */
-.container form > div {
+  height:auto;
+  object-fit:contain;
   margin-bottom: 14px;
+  border-radius: 16px;
 }
 
-.container label {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 0.9rem;
-  color: var(--text, #111827);
-  font-weight: 600;
-}
-
-.container input {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border, rgba(0, 0, 0, 0.12));
-  background: var(--input-bg, #ffffff);
-  color: var(--text, #111827);
-  outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.container input:focus {
-  border-color: var(--primary, #2563eb);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
-}
-
-/* actions row (Log In + Cancel) */
-.container form > div:last-child {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.container button {
-  appearance: none;
-  border: 0;
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.05s ease, opacity 0.15s ease;
-}
-
-.container button:active {
-  transform: translateY(1px);
-}
-
-.container button[type="submit"],
-.container button:not([type]) {
-  background: var(--primary, #2563eb);
-  color: #fff;
-}
-
-.container button[type="submit"]:hover,
-.container button:not([type]):hover {
-  opacity: 0.92;
+@media (max-width: 900px){
+  .container{
+    grid-template-columns:1fr;
+  }
+  .container section:first-child{
+    display:none;
+  }
+  .container{
+    max-width: 520px;
+  }
 }
