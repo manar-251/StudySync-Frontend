@@ -16,7 +16,7 @@ const signup = async (formData) => {
   return null;
 };
 
-const signin = async (user) => {
+const signin = async (formData) => {
   const res = await sendRequest('/auth/sign-in', {
     method: 'POST',
     body: formData,
