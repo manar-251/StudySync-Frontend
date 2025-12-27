@@ -9,10 +9,8 @@ This repository contains the **front-end** portion of the MERN stack project —
 ---
 
 ## 🖼️ Screenshot / Logo
-Add your logo/screenshots here  
-- `src/assets/images/logo.svg`  
-- `src/assets/images/logotype.svg`
 
+![Profile](image.png)
 ---
 
 ## 🚀 Getting Started
